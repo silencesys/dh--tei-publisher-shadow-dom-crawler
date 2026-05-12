@@ -88,4 +88,3 @@ window.injectShadowStyles = injectShadowStyles;
       }
     }
   }).observe(document.body, { childList: true, subtree: true });
-}
