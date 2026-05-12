@@ -8,7 +8,7 @@ Useful when you need to style content rendered inside a Web Component's shadow D
 
 **Via jsDelivr CDN:**
 ```html
-<script src="https://cdn.jsdelivr.net/gh/silencesys/dh--tei-publisher-shadow-dom-crawlers@latest/shadow-dom.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/silencesys/dh--tei-publisher-shadow-dom-crawler@main/shadow-dom.js"></script>
 ```
 
 **Download and self-host:**  
@@ -19,7 +19,7 @@ Copy `shadow-styles.js` into your project.
 After loading the script, `injectShadowStyles` is available as a global:
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/silencesys/dh--tei-publisher-shadow-dom-crawler@latest/shadow-dom.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/silencesys/dh--tei-publisher-shadow-dom-crawler@main/shadow-dom.js"></script>
 <script>
   injectShadowStyles('pb-view', 'path/to/my.css', ['pb-results-received']);
 </script>
@@ -28,7 +28,7 @@ After loading the script, `injectShadowStyles` is available as a global:
 Or import it as an ES module:
 
 ```js
-import { injectShadowStyles } from 'https://cdn.jsdelivr.net/gh/silencesys/dh--tei-publisher-shadow-dom-crawler@latest/shadow-dom.js';
+import { injectShadowStyles } from 'https://cdn.jsdelivr.net/gh/silencesys/dh--tei-publisher-shadow-dom-crawler@main/shadow-dom.js';
 injectShadowStyles('my-element', '/styles/custom.css');
 ```
 
@@ -57,7 +57,7 @@ injectShadowStyles(selector, cssUrl, events?)
 TEI Publisher renders document content inside `pb-view`'s shadow DOM. To style footnotes:
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/silencesys/dh--tei-publisher-shadow-dom-crawler@latest/shadow-dom.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/silencesys/dh--tei-publisher-shadow-dom-crawler@main/shadow-dom.js"></script>
 <script>
   // 'pb-results-received' fires every time pb-view loads a new page of content
   injectShadowStyles('pb-view', 'resources/css/my-overrides.css', ['pb-results-received']);
@@ -69,7 +69,7 @@ TEI Publisher renders document content inside `pb-view`'s shadow DOM. To style f
 Pin to a specific release tag in production to avoid unexpected updates:
 
 ```html
-<script src="https://cdn.jsdelivr.net/gh/silencesys/dh--tei-publisher-shadow-dom-crawler@latest/shadow-dom.js@1.0.0/shadow-styles.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/silencesys/dh--tei-publisher-shadow-dom-crawler@latest/shadow-dom.js@1.0.2/shadow-styles.js"></script>
 ```
 
 jsDelivr caches `@latest` for up to 12 hours. Use a pinned tag for immediate cache busting.
