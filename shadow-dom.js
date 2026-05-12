@@ -46,8 +46,6 @@ async function injectShadowStyles(selector, cssUrl, events = []) {
 // Expose as global for plain <script> usage
 window.injectShadowStyles = injectShadowStyles;
 
-// Also export for ES module usage
-export { injectShadowStyles };
 
   const resp = await fetch(cssUrl);
   if (!resp.ok) {
