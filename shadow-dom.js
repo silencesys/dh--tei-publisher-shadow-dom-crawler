@@ -15,9 +15,15 @@ async function injectShadowStyles(selector, cssUrl, events = []) {
   const css = await resp.text();
   const attr = `data-injected-${cssUrl.replace(/[^a-z0-9]/gi, '-')}`;
 
-  function inject(el) {
+  function inject(el, forceToEnd = false) {
     const root = el.shadowRoot;
-    if (!root || root.querySelector(`style[${attr}]`)) return;
+    if (!root) return;
+    const existing = root.querySelector(`style[${attr}]`);
+    if (existing) {
+      // Move to end so it wins over any styles appended after initial injection
+      if (forceToEnd) root.appendChild(existing);
+      return;
+    }
     const style = document.createElement('style');
     style.setAttribute(attr, '');
     style.textContent = css;
@@ -26,10 +32,10 @@ async function injectShadowStyles(selector, cssUrl, events = []) {
 
   await customElements.whenDefined(selector);
   await Promise.resolve();
-  document.querySelectorAll(selector).forEach(inject);
+  document.querySelectorAll(selector).forEach(el => inject(el));
 
   events.forEach(eventName => {
-    document.addEventListener(eventName, e => inject(e.target));
+    document.addEventListener(eventName, e => inject(e.target, true));
   });
 
   new MutationObserver(mutations => {
